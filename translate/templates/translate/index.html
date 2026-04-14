@@ -23,12 +23,55 @@
                 </select>
 
                 <button onclick="translateNow()">Translate Now</button>
-                
+
                 <div class="result-box">
                     <strong>Translated Text:</strong><br>
                     <span id="translatedText">Your result will appear here...</span>
                 </div>
             </div>
         </div>
+
+        <script>
+            async function translateNow() {
+                const text = document.getElementById('inputText').value.trim();
+                const lang = document.getElementById('targetLanguage').value;
+                const resultEl = document.getElementById('translatedText');
+
+                if (!text) {
+                    resultEl.textContent = "Please enter some text";
+                    return;
+                }
+
+                resultEl.textContent = "Translating..."
+
+                try {
+                    const res = await fetch('/api/v1/translate-text', {
+                        method: 'POST'
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            text: text,
+                            targetLanguage: lang
+                        })
+                    });
+
+                    const data = await res.json();
+
+                    if (res.ok) {
+                        resultEl.textContent = data.translatedText || "No translation available";
+                    } else {
+                        resultEl.textContent = `Error: ${data.error || 'Something went wrong'}`;
+                    }
+                } catch (err) {
+                    resultEl.textContent = "Could not connect to server";
+                }
+            }
+
+            document.getElementById('InputText').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    translateNow();
+                }
+            });
+        </script>
     </body>
 </html>
