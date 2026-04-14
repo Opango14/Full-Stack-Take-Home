@@ -7,7 +7,7 @@ Built with **Django** as requested, following best practices for structure and c
 
 ---
 
-## ✨ Features
+## Features
 
 - Clean and responsive user interface
 - Translate from English → Swahili and Swahili → English
@@ -20,7 +20,7 @@ Built with **Django** as requested, following best practices for structure and c
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Backend**: Django (Python)
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
