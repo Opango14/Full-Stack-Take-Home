@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Translator</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>English - Swahili Translator</h1>
+                <p class="subtitle">Simple Fast Accurate for common phrases</p>
+            </header>
+
+            <div class="content">
+                <label>Enter text to translate:</label>
+                <textarea id="inputText" placeholder="Example: buy maize or nunua mahindi"></textarea>
+                <label>Translate to:</label>
+
+                <select id="targetLanguage">
+                    <option value="sw">Swahili (from English)</option>
+                    <option value="en">English (from Swahili)</option>
+                </select>
+
+                <button onclick="translateNow()">Translate Now</button>
+                
+                <div class="result-box">
+                    <strong>Translated Text:</strong><br>
+                    <span id="translatedText">Your result will appear here...</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
