@@ -37,7 +37,7 @@ cd Full-Stack-Take-Home
 ```
 ### 2. Create and Activate Virtual Environment
 ```bash
-python -m venv venv
+python3 -m venv venv
 # Windows
 venv\Scripts\activate
 # Linux / macOS
